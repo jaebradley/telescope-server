@@ -25,7 +25,7 @@
 #   unused-packages = true
 
 [metadata.heroku]
-  root-package = "telescope-server
+  root-package = "github.com/jaebradley/telescope-server
   go-version = "1.13.0"
   install = ["./..."]
 
