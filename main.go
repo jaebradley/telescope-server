@@ -8,6 +8,7 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 // EmployersHandler handles requests to the /employers endpoint and proxies requests to the Glassdoor API
@@ -53,5 +54,7 @@ func main() {
 	router.
 		HandleFunc("/employers", EmployersHandler).
 		Methods("GET")
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), router))
+
+	handler := cors.Default().Handler(router)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), handler))
 }
