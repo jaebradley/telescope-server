@@ -52,7 +52,6 @@ func main() {
 	router := mux.NewRouter()
 	router.
 		HandleFunc("/employers", EmployersHandler).
-		Methods("GET").
-		Headers("Content-Type", "application/json")
+		Methods("GET")
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), router))
 }
